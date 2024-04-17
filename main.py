@@ -1,12 +1,23 @@
-def bsort(arr):
-    n=len(arr)
-    k=1
-    while(True):
-        c=0
-        for i in range(n-k):
-            if arr[i+1]<arr[i]:
-                arr[i+1],arr[i]=arr[i],arr[i+1]
-                c=c+1
-        if c==0:
-            return
-        k=k+1
+import random as rnd
+
+n = int(input())
+list = []
+num = int(input("По возрастанию - 1, по убыванию - 2"))
+
+for i in range(n):
+    list.append(rnd.randint(1, 99))
+print(list)
+
+if num == 1:
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if list[j] > list[j + 1]:
+                list[j], list[j + 1] = list[j + 1], list[j]
+    print(list)
+else:
+    for i in range(n - 1):
+        for j in range(n - i - 1):
+            if list[j] > list[j + 1]:
+                list[j], list[j + 1] = list[j + 1], list[j]
+    list.reverse()
+    print(list)
